@@ -1,7 +1,7 @@
 'use strict';
 const Joi = require('joi');
 
-let Validator = () => {
+let Validator = function() {
 
 };
 

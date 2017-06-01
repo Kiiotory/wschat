@@ -1,7 +1,7 @@
 'use strict';
 const mongoose  = require('mongoose');
 const Schema = mongoose.Schema();
-const Validator = require('Validator');
+const Validator = require('../../common/validation');
 const validator = new Validator;
 
 let userSchema = new mongoose.Schema({
