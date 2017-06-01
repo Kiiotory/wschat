@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9bdc069d-e124-46db-8022-53af2910cab5" name="wschat" url="http://188.226.131.191">
+        <fileTransfer host="188.226.131.191" port="2402" rootFolder="/home/wschat" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="2402" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
