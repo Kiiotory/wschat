@@ -1,6 +1,8 @@
 'use strict';
 const mongoose  = require('mongoose');
 const Schema = mongoose.Schema();
+const Validator = require('Validator');
+const validator = new Validator;
 
 let userSchema = new mongoose.Schema({
     first_name: {
@@ -19,7 +21,7 @@ let userSchema = new mongoose.Schema({
     email:{
         type: String,
         unique: true,
-        validate: emailValidator
+        validate: [validator.email, 'Email is not correct']
     },
     password:{
 
