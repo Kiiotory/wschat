@@ -21,7 +21,15 @@ let userSchema = new mongoose.Schema({
     email:{
         type: String,
         unique: true,
-        validate: [validator.email, 'Email is not correct']
+        validate: [
+            {
+                validator: function checkMail(value){
+                    return /^[-.\w]+@([\w-]+\.)+[\w-]{2,12}$/.test(value);
+                },
+                msg:  ` Email is not correct`
+            }
+        ]
+
     },
     password:{
 

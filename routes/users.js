@@ -1,27 +1,16 @@
 "use strict";
 const express       = require('express');
 const router        = express.Router();
-let wrap            = require('co-express');
 let fs              = require('fs');
 let User            = require('../models/users.model'), user = new User();
 let middleware      = require('../middlewares/middleware');
+let wrap = fn => (...args) => fn(...args).catch(args[2]);
 
-router.post('', middleware(), (req, res) => {
-    console.log(req);
-    res.send('post used');
-return;
-    async function wrap(req) {
-        let params = req.body;
-        let a = await user.addUser(params).then(res => {
-            console.log('!222',req);
-            return res;
-        }).catch(err => console.log('err',err));
-        res.send(a);
-    }
-
-    wrap(req).catch(err => console.log('error', err));
-
-});
+router.post('', middleware(), wrap(async(req, res) => {
+    let a = await user.addUser(req.body);
+    console.log(a);
+    res.send(200, a);
+}));
 
 router.get('', (req,res) => {
 console.log(req.device);
