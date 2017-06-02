@@ -9,7 +9,7 @@ let wrap = fn => (...args) => fn(...args).catch(args[2]);
 router.post('', middleware(), wrap(async(req, res) => {
     let a = await user.addUser(req.body);
     console.log(a);
-    res.send(200, a);
+    res.send(a);
 }));
 
 router.get('', (req,res) => {

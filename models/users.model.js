@@ -9,11 +9,8 @@ const Users = function () {};
 Users.prototype.addUser = (data) => {
     let user = mongoose.model('Users', userSchema);
     let newUser = new user(data);
-    console.log(userSchema);
-    return new user(data).save({}).then(result => result).catch(err => {
-        console.log(err);
-        return err;
-    });
+    // console.log(userSchema);
+    return new user(data).save({}).then(result => result).catch(err => Object.values(err.errors)[0].message);
 };
 
 module.exports = Users;
