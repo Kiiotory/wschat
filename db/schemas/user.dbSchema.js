@@ -1,8 +1,9 @@
 'use strict';
 const mongoose  = require('mongoose');
 const Schema = mongoose.Schema();
-const Validator = require('../../common/validation');
-const validator = new Validator;
+// const Validator = require('../../common/validation');
+// const validator = new Validator;
+
 
 let userSchema = new mongoose.Schema({
     first_name: {
@@ -20,7 +21,6 @@ let userSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        unique: true,
         validate: [
             {
                 validator: function checkMail(value){
@@ -28,27 +28,28 @@ let userSchema = new mongoose.Schema({
                 },
                 msg:  ` Email is not correct`
             }
-        ]
-
-    },
-    password:{
-
-    },
-    phone_number:{
-
-    },
-    type_id:{
-
-    },
-    is_email_confirmed:{
-
-    },
-    reset_passwd_key:{
-
-    },
-    avatar_content_id:{
+        ],
+        unique: "This Email allready registered"
 
     }
+    // password:{
+    //
+    // },
+    // phone_number:{
+    //
+    // },
+    // type_id:{
+    //
+    // },
+    // is_email_confirmed:{
+    //
+    // },
+    // reset_passwd_key:{
+    //
+    // },
+    // avatar_content_id:{
+    //
+    // }
 });
 
 

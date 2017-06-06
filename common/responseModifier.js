@@ -1,31 +1,18 @@
 'use strict';
-
-class responseModifier {
-     constructor() {
-         this.dcCode = dcCode;
-         this.res.myStatus = httpCode;
-     }
-
-     success() {
-         res.myResponse = responseBody;
-         return res;
-     }
-};
-
-
-function setStatuses(dcCode, httpCode) {
+function setStatuses(res, dcCode, httpCode) {
     res.dcCode = dcCode;
     res.myStatus = httpCode;
-
-    return res;
+    return res
 }
 
-function success(responseBody, httpCode, dcCode) {
+function success(res, responseBody, httpCode, dcCode) {
     res.dcCode = dcCode;
     res.myStatus = httpCode;
     res.myResponse = responseBody;
-
-    return res;
+    return res
 }
 
-module.exports = responseModifier;
+module.exports = {
+    setStatuses,
+    success
+};
